@@ -1,0 +1,53 @@
+{
+	"schemaVersion": 1,
+	"id": "buzzes_and_crawls",
+	"version": "${version}",
+	"name": "Buzzes and Crawls",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"SarahIsWeird"
+	],
+	"contact": {
+		"homepage": "https://github.com/SarahIsWeird/BuzzesAndCrawls",
+		"sources": "https://github.com/SarahIsWeird/BuzzesAndCrawls"
+	},
+	"license": "MIT",
+	"icon": "assets/buzzes_and_crawls/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			{
+				"value": "com.sarahisweird.buzzes_and_crawls.BuzzesAndCrawls",
+				"adapter": "kotlin"
+			}
+		],
+		"client": [
+			{
+				"value": "com.sarahisweird.buzzes_and_crawls.client.BCClient",
+				"adapter": "kotlin"
+			}
+		],
+		"fabric-datagen": [
+			{
+				"value": "com.sarahisweird.buzzes_and_crawls.client.BCDataGenerator",
+				"adapter": "kotlin"
+			}
+		]
+	},
+	"mixins": [
+		"buzzes_and_crawls.mixins.json",
+		{
+			"config": "buzzes_and_crawls.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.14",
+		"minecraft": "~1.21.5",
+		"java": ">=21",
+		"fabric-api": "*",
+		"fabric-language-kotlin": "*"
+	},
+	"suggests": {
+	}
+}
