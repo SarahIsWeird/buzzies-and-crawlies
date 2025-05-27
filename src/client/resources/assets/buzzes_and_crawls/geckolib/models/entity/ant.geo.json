@@ -1,0 +1,166 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.ant",
+				"texture_width": 32,
+				"texture_height": 32,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 1.5,
+				"visible_bounds_offset": [0, 0.25, 0]
+			},
+			"bones": [
+				{
+					"name": "Ant",
+					"pivot": [0.5, 2.5, -1.5]
+				},
+				{
+					"name": "Head",
+					"parent": "Ant",
+					"pivot": [0, 2, -2.5],
+					"cubes": [
+						{"origin": [-1.5, 1, -5.5], "size": [3, 2, 3], "uv": [0, 11]}
+					]
+				},
+				{
+					"name": "Antenna L",
+					"parent": "Head",
+					"pivot": [1.5, 3, -5],
+					"cubes": [
+						{"origin": [1.5, 3, -7], "size": [0, 1, 2], "pivot": [1.5, 3, -5], "rotation": [0, -12.5, 5], "uv": [0, 14]}
+					]
+				},
+				{
+					"name": "Antenna R",
+					"parent": "Head",
+					"pivot": [-1.5, 3, -5],
+					"cubes": [
+						{"origin": [-1.5, 3, -7], "size": [0, 1, 2], "pivot": [-1.5, 3, -5], "rotation": [0, 12.5, -5], "uv": [0, 15]}
+					]
+				},
+				{
+					"name": "Middle",
+					"parent": "Ant",
+					"pivot": [0.5, 2.5, -1.5],
+					"cubes": [
+						{"origin": [-1, 1.5, -2.5], "size": [2, 1, 4], "uv": [0, 6]}
+					]
+				},
+				{
+					"name": "Legs",
+					"parent": "Middle",
+					"pivot": [0.5, 2.5, -1.5]
+				},
+				{
+					"name": "Leg FL",
+					"parent": "Legs",
+					"pivot": [1, 2.5, -1.5],
+					"rotation": [0, 17.5, 0],
+					"cubes": [
+						{"origin": [1, 2.5, -1.5], "size": [2, 1, 0], "pivot": [1, 2.5, -1.5], "rotation": [0, 0, -17.5], "uv": [12, 6]}
+					]
+				},
+				{
+					"name": "tibia",
+					"parent": "Leg FL",
+					"pivot": [1, 2.5, -1.5],
+					"cubes": [
+						{"origin": [2.9, -0.2, -1.5], "size": [1, 3.3, 0], "pivot": [2.9, 3.1, -1.5], "rotation": [0, 0, -17.5], "uv": [12, 7]}
+					]
+				},
+				{
+					"name": "Leg ML",
+					"parent": "Legs",
+					"pivot": [1, 2.5, -0.5],
+					"cubes": [
+						{"origin": [1, 2.5, -0.5], "size": [2, 1, 0], "pivot": [1, 2.5, -0.5], "rotation": [0, 0, -17.5], "uv": [12, 10]}
+					]
+				},
+				{
+					"name": "tibia2",
+					"parent": "Leg ML",
+					"pivot": [1, 2.5, -0.5],
+					"cubes": [
+						{"origin": [2.9, -0.2, -0.5], "size": [1, 3.3, 0], "pivot": [2.9, 3.1, -0.5], "rotation": [0, 0, -17.5], "uv": [12, 11]}
+					]
+				},
+				{
+					"name": "Leg BL",
+					"parent": "Legs",
+					"pivot": [1, 2.5, 0.5],
+					"rotation": [0, -17.5, 0],
+					"cubes": [
+						{"origin": [1, 2.5, 0.5], "size": [2, 1, 0], "pivot": [1, 2.5, 0.5], "rotation": [0, 0, -17.5], "uv": [14, 0]}
+					]
+				},
+				{
+					"name": "tibia3",
+					"parent": "Leg BL",
+					"pivot": [1, 2.5, 0.5],
+					"cubes": [
+						{"origin": [2.9, -0.2, 0.5], "size": [1, 3.3, 0], "pivot": [2.9, 3.1, 0.5], "rotation": [0, 0, -17.5], "uv": [14, 1]}
+					]
+				},
+				{
+					"name": "Leg FR",
+					"parent": "Legs",
+					"pivot": [-1, 2.5, -1.5],
+					"rotation": [0, -17.5, 0],
+					"cubes": [
+						{"origin": [-3, 2.5, -1.5], "size": [2, 1, 0], "pivot": [-1, 2.5, -1.5], "rotation": [0, 0, 17.5], "uv": [14, 4]}
+					]
+				},
+				{
+					"name": "tibia4",
+					"parent": "Leg FR",
+					"pivot": [-1, 2.5, -1.5],
+					"cubes": [
+						{"origin": [-3.9, -0.2, -1.5], "size": [1, 3.3, 0], "pivot": [-2.9, 3.1, -1.5], "rotation": [0, 0, 17.5], "uv": [14, 7]}
+					]
+				},
+				{
+					"name": "Leg MR",
+					"parent": "Legs",
+					"pivot": [-1, 2.5, -0.5],
+					"cubes": [
+						{"origin": [-3, 2.5, -0.5], "size": [2, 1, 0], "pivot": [-1, 2.5, -0.5], "rotation": [0, 0, 17.5], "uv": [14, 5]}
+					]
+				},
+				{
+					"name": "tibia5",
+					"parent": "Leg MR",
+					"pivot": [-1, 2.5, -0.5],
+					"cubes": [
+						{"origin": [-3.9, -0.2, -0.5], "size": [1, 3.3, 0], "pivot": [-2.9, 3.1, -0.5], "rotation": [0, 0, 17.5], "uv": [14, 11]}
+					]
+				},
+				{
+					"name": "Leg BR",
+					"parent": "Legs",
+					"pivot": [-1, 2.5, 0.5],
+					"rotation": [0, 17.5, 0],
+					"cubes": [
+						{"origin": [-3, 2.5, 0.5], "size": [2, 1, 0], "pivot": [-1, 2.5, 0.5], "rotation": [0, 0, 17.5], "uv": [12, 14]}
+					]
+				},
+				{
+					"name": "tibia6",
+					"parent": "Leg BR",
+					"pivot": [-1, 2.5, 0.5],
+					"cubes": [
+						{"origin": [-3.9, -0.2, 0.5], "size": [1, 3.3, 0], "pivot": [-2.9, 3.1, 0.5], "rotation": [0, 0, 17.5], "uv": [12, 15]}
+					]
+				},
+				{
+					"name": "End Bit",
+					"parent": "Ant",
+					"pivot": [0, 2, 1.5],
+					"cubes": [
+						{"origin": [-1.5, 1, 1.5], "size": [3, 2, 4], "uv": [0, 0]}
+					]
+				}
+			]
+		}
+	]
+}

@@ -3,6 +3,8 @@
 	"package": "com.sarahisweird.buzzes_and_crawls.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
+		"LandPathNodeMakerMixin",
+		"PathNodeMakerAccessor"
 	],
 	"injectors": {
 		"defaultRequire": 1

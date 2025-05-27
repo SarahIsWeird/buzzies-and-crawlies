@@ -4,6 +4,6 @@ import net.fabricmc.api.ClientModInitializer
 
 object BCClient : ClientModInitializer {
 	override fun onInitializeClient() {
-
-	}
+		BaCClientJava.registerEntityRenderers()
+    }
 }
