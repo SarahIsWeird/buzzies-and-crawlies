@@ -2,6 +2,7 @@ package com.sarahisweird.buzzes_and_crawls
 
 import com.sarahisweird.buzzes_and_crawls.BuzzesAndCrawls.MOD_ID
 import com.sarahisweird.buzzes_and_crawls.blocks.AntHillBlock
+import com.sarahisweird.buzzes_and_crawls.util.addAll
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents
 import net.minecraft.block.AbstractBlock
 import net.minecraft.block.Block
@@ -47,8 +48,16 @@ object BaCBlocks {
     }
 
     fun init() {
+        ItemGroupEvents.modifyEntriesEvent(BuzzesAndCrawls.ITEM_GROUP_KEY).register { group ->
+            group.addAll(
+                ANTHILL,
+            )
+        }
+
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register { group ->
-            group.add(ANTHILL.asItem())
+            group.addAll(
+                 ANTHILL,
+            )
         }
     }
 }

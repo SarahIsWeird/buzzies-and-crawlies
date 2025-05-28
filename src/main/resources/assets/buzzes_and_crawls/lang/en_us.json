@@ -1,5 +1,12 @@
 {
     "block.buzzes_and_crawls.anthill": "Anthill",
 
+    "item.buzzes_and_crawls.beaker_magnifier": "Beaker Magnifier",
+    "item.buzzes_and_crawls.occupied_beaker_magnifier": "Occupied Beaker Magnifier",
+    "item.buzzes_and_crawls.occupied_beaker_magnifier.with_entity": "Beaker Magnifier (%1$s)",
+    "item.buzzes_and_crawls.ant_spawn_egg": "Ant Spawn Egg",
+
+    "itemGroup.buzzes_and_crawls": "Buzzes and Crawls",
+
     "entity.buzzes_and_crawls.ant": "Ant"
 }

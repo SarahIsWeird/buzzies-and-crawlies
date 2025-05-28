@@ -1,0 +1,16 @@
+{
+    "model": {
+        "type": "minecraft:model",
+        "model": "buzzes_and_crawls:item/occupied_beaker_magnifier",
+        "tints": [
+            {
+                "type": "minecraft:constant",
+                "value": -1
+            },
+            {
+                "type": "buzzes_and_crawls:beaker_magnifier_tint",
+                "default": 16515327
+            }
+        ]
+    }
+}

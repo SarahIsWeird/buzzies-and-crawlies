@@ -29,7 +29,7 @@
 		],
 		"fabric-datagen": [
 			{
-				"value": "com.sarahisweird.buzzes_and_crawls.client.BCDataGenerator",
+				"value": "com.sarahisweird.buzzes_and_crawls.datagen.BCDataGenerator",
 				"adapter": "kotlin"
 			}
 		]

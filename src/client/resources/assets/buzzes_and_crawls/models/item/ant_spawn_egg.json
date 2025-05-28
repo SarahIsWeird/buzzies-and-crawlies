@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:item/generated",
+    "textures": {
+        "layer0": "buzzes_and_crawls:item/ant_spawn_egg"
+    }
+}

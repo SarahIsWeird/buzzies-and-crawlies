@@ -8,23 +8,12 @@ import net.minecraft.world.WorldView
 import net.minecraft.world.chunk.Chunk
 import net.minecraft.world.chunk.ChunkStatus
 
-abstract class MoveToTargetBlockGoal(
+abstract class OpenedMoveToTargetPosGoal(
     entity: PathAwareEntity,
     speed: Double,
     range: Int,
     maxYDifference: Int = 1,
 ) : MoveToTargetPosGoal(entity, speed, range, maxYDifference) {
-    abstract fun isTargetBlock(chunk: Chunk, pos: BlockPos): Boolean
-
-    override fun isTargetPos(world: WorldView, pos: BlockPos): Boolean {
-        val chunkX = ChunkSectionPos.getSectionCoord(pos.x)
-        val chunkZ = ChunkSectionPos.getSectionCoord(pos.z)
-        val chunk = world.getChunk(chunkX, chunkZ, ChunkStatus.FULL, false)
-            ?: return false
-
-        return isTargetBlock(chunk, pos)
-    }
-
     public override fun findTargetPos(): Boolean {
         return super.findTargetPos()
     }
@@ -35,5 +24,23 @@ abstract class MoveToTargetBlockGoal(
 
     public override fun getTargetPos(): BlockPos {
         return super.getTargetPos()
+    }
+}
+
+abstract class MoveToTargetBlockGoal(
+    entity: PathAwareEntity,
+    speed: Double,
+    range: Int,
+    maxYDifference: Int = 1,
+) : OpenedMoveToTargetPosGoal(entity, speed, range, maxYDifference) {
+    abstract fun isTargetBlock(chunk: Chunk, pos: BlockPos): Boolean
+
+    override fun isTargetPos(world: WorldView, pos: BlockPos): Boolean {
+        val chunkX = ChunkSectionPos.getSectionCoord(pos.x)
+        val chunkZ = ChunkSectionPos.getSectionCoord(pos.z)
+        val chunk = world.getChunk(chunkX, chunkZ, ChunkStatus.FULL, false)
+            ?: return false
+
+        return isTargetBlock(chunk, pos)
     }
 }

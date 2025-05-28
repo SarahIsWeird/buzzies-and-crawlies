@@ -3,22 +3,12 @@ package com.sarahisweird.buzzes_and_crawls.entities.ant.goals
 import com.sarahisweird.buzzes_and_crawls.BaCBlocks
 import com.sarahisweird.buzzes_and_crawls.blocks.AntHillBlock
 import com.sarahisweird.buzzes_and_crawls.entities.ant.AntEntity
-import com.sarahisweird.buzzes_and_crawls.util.minus
-import com.sarahisweird.buzzes_and_crawls.util.plus
-import com.sarahisweird.buzzes_and_crawls.util.times
 import net.minecraft.block.Blocks
 import net.minecraft.block.Segmented
 import net.minecraft.entity.ai.goal.Goal
-import net.minecraft.item.ItemConvertible
-import net.minecraft.item.ItemStack
-import net.minecraft.particle.ItemStackParticleEffect
-import net.minecraft.particle.ParticleTypes
 import net.minecraft.server.world.ServerWorld
-import net.minecraft.sound.SoundCategory
-import net.minecraft.sound.SoundEvent
 import net.minecraft.sound.SoundEvents
 import net.minecraft.util.math.BlockPos
-import net.minecraft.util.math.Vec3d
 
 class BuildNestGoal(
     private val ant: AntEntity,
@@ -96,35 +86,6 @@ class BuildNestGoal(
         gatherTime = 0
     }
 
-    private fun spawnWorkParticles(item: ItemConvertible) {
-        if (ant.world.isClient) return
-
-        val world = ant.world as ServerWorld
-        val effect = ItemStackParticleEffect(ParticleTypes.ITEM, ItemStack(item))
-
-        val pos = ant.eyePos + ant.rotationVector.normalize() * (ant.currentSize / 2.0) - Vec3d(0.0, 3.0 / 16.0, 0.0)
-        val offset = Vec3d(
-            (ant.random.nextDouble() - 0.5) * 0.08,
-            (ant.random.nextDouble() - 0.5) * 0.08,
-            (ant.random.nextDouble() - 0.5) * 0.08,
-        )
-
-        world.spawnParticles(
-            effect,
-            pos.x, pos.y, pos.z,
-            2,
-            offset.x, offset.y, offset.z,
-            0.05
-        )
-    }
-
-    private fun playWorkSound(sound: SoundEvent) {
-        if (ant.world.isClient) return
-
-        val world = ant.world as ServerWorld
-        world.playSound(ant, ant.blockPos, sound, SoundCategory.BLOCKS, 0.5f, 1.5f)
-    }
-
     private fun removeMaterial() {
         if (ant.world.isClient) return
 
@@ -140,11 +101,11 @@ class BuildNestGoal(
     private fun onTickGathering() {
         if (gatherTime < GATHER_TICKS) {
             if (gatherTime % 4 == 0) {
-                spawnWorkParticles(Blocks.LEAF_LITTER)
+                ant.spawnWorkParticles(Blocks.LEAF_LITTER)
             }
 
             if (gatherTime % 8 == 0) {
-                playWorkSound(SoundEvents.BLOCK_LEAF_LITTER_BREAK)
+                ant.playWorkSound(SoundEvents.BLOCK_LEAF_LITTER_BREAK)
             }
 
             gatherTime++
@@ -173,11 +134,11 @@ class BuildNestGoal(
     private fun onTickBuilding() {
         if (buildTime < BUILD_TICKS) {
             if (buildTime % 4 == 0) {
-                spawnWorkParticles(BaCBlocks.ANTHILL)
+                ant.spawnWorkParticles(BaCBlocks.ANTHILL)
             }
 
             if (buildTime % 8 == 0) {
-                playWorkSound(SoundEvents.BLOCK_ROOTED_DIRT_PLACE)
+                ant.playWorkSound(SoundEvents.BLOCK_ROOTED_DIRT_PLACE)
             }
 
             buildTime++

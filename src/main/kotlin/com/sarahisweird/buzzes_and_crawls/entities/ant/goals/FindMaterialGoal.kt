@@ -13,6 +13,7 @@ class FindMaterialGoal(
     range: Int,
 ) : MoveToTargetBlockGoal(ant, speed, range) {
     override fun isTargetBlock(chunk: Chunk, pos: BlockPos): Boolean {
+        // TODO: Make a tag for this
         return chunk.getBlockState(pos).isOf(Blocks.LEAF_LITTER) && chunk.getBlockState(pos.up()).isAir
     }
 

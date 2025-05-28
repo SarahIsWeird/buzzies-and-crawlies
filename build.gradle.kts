@@ -31,6 +31,8 @@ repositories {
             includeGroup("software.bernie.geckolib")
         }
     }
+
+    maven("https://maven.shedaniel.me/")
 }
 
 loom {
@@ -57,6 +59,7 @@ dependencies {
     val fabricVersion: String by project
     val fabricKotlinVersion: String by project
     val geckolibVersion: String by project
+    val log4jKotlinVersion: String by project
 
     minecraft("com.mojang:minecraft:$minecraftVersion")
     mappings("net.fabricmc:yarn:$yarnMappings:v2")
@@ -66,6 +69,15 @@ dependencies {
     modImplementation("net.fabricmc:fabric-language-kotlin:$fabricKotlinVersion")
 
     modImplementation("software.bernie.geckolib:geckolib-fabric-$minecraftVersion:$geckolibVersion")
+
+    // Makes Kotlin logging simpler. Must be included in the final jar, hence `include` (= jar-in-jar).
+    implementation("org.apache.logging.log4j:log4j-api-kotlin:$log4jKotlinVersion")
+    include("org.apache.logging.log4j:log4j-api-kotlin:$log4jKotlinVersion")
+
+    // Dev-time dependencies
+    val reiVersion: String by project
+
+    modLocalRuntime("me.shedaniel:RoughlyEnoughItems-fabric:$reiVersion")
 }
 
 tasks.processResources {
